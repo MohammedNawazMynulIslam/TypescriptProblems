@@ -1,17 +1,16 @@
-type ArrayOfRandomNumbers = number;
 
-function filterEvenNumbers(numbers: ArrayOfRandomNumbers[]) {
+
+function filterEvenNumbers(numbers: number[]) {
   return numbers.filter((num) => num % 2 === 0);
 }
 
-type ReverseTheString = string;
-function reverseString(GiveAInput: ReverseTheString) {
+
+function reverseString(GiveAInput: string) {
   return GiveAInput.split("").reverse().join("");
 }
 
-type StringOrNumber = string | number;
 
-function checkType(InputChecker: StringOrNumber) {
+function checkType(InputChecker: string | number) {
   return typeof InputChecker === "string" ? "String" : "Number";
 }
 
@@ -22,4 +21,23 @@ function getProperty<User, Key extends keyof User>(obj: User, key: Key) {
   return obj[key];
 }
 
-console.log(getProperty(user, "name"));
+interface Book { 
+  title: string;
+  author: string;
+  publishedYear: number;
+}
+type ReadingStatus = {
+  isRead: boolean;
+}
+
+const myBook = {
+  title: "TypeScript Guide",
+  author: "Jane Doe",
+  publishedYear: 2024,
+};
+
+
+function toggleReadStatus(myBook: Book, isRead: boolean = true): ReadingStatus {
+  return { ...myBook, isRead };
+}
+console.log(toggleReadStatus(myBook))
