@@ -26,11 +26,11 @@ Common narrowing techniques:
 ```ts
 function parseInput(data: unknown): string {
   if (typeof data === "string") {
-    // ✅ Narrowed to `string`
+    
     return data.trim().toUpperCase();
   }
   if (Array.isArray(data)) {
-    // ✅ Narrowed to `unknown[]`
+    
     return `Array with ${data.length} items`;
   }
 
